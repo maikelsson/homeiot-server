@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: mikaeltho/homeiot-server
+    build: .
+    command: "node dist/src/index.js"
+    depends_on:
+      - "influx-db"
+  influx-db:
+    image: influxdb
+    ports: 
+      - "8086:8086"
